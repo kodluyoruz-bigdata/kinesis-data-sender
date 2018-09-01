@@ -6,7 +6,7 @@ import com.amazonaws.auth.{AWSStaticCredentialsProvider, BasicAWSCredentials, De
 import com.amazonaws.services.kinesis.AmazonKinesisClientBuilder
 import com.amazonaws.services.kinesis.model.{PutRecordRequest, PutRecordsRequest, PutRecordsRequestEntry}
 
-//import scala.io.Source
+import scala.io.Source
 
 object KinesisSender {
 
@@ -24,13 +24,7 @@ object KinesisSender {
       .withRegion(regionName)
       .build()
 
-//    val rawData = Source.fromFile(filePath).getLines()
-//      .map(r => createPutRecord(streamName, 1, r))
-//
-//    val t = rawData.map(r => kinesisClient.putRecord(r))
-
-
-    val records = (0 to 100).map(_.toString)
+    val records = Source.fromFile(filePath).getLines()
 
     records.foreach { r =>
       val record = createPutRecord(streamName, 1, r)
