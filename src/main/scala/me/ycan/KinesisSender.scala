@@ -2,9 +2,9 @@ package me.ycan
 
 import java.nio.ByteBuffer
 
-import com.amazonaws.auth.{AWSStaticCredentialsProvider, BasicAWSCredentials, DefaultAWSCredentialsProviderChain}
+import com.amazonaws.auth.{AWSStaticCredentialsProvider, BasicAWSCredentials}
 import com.amazonaws.services.kinesis.AmazonKinesisClientBuilder
-import com.amazonaws.services.kinesis.model.{PutRecordRequest, PutRecordsRequest, PutRecordsRequestEntry}
+import com.amazonaws.services.kinesis.model.PutRecordRequest
 
 import scala.io.Source
 
